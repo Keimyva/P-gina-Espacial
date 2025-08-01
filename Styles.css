@@ -1,0 +1,112 @@
+ 
+ 
+ Margenes {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #01091d; /* Azul oscuro */
+    color: #ddcbcb;
+    min-height: 50vh;
+}
+
+header {
+    text-align: center;
+    padding: px;
+    background-color: #14023d; 
+}
+
+.subtítulo{
+    font-size: 1.6rem;
+
+}
+
+
+main {
+    width: 100%;
+    max-width: 900px;
+    display:flex;
+    align-items: center;
+    gap: 40px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+
+
+.galaxia{
+    width: 100%;
+    text-align: center;
+}
+
+.galaxia h2{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.contenedor-cards {
+    display: flex; 
+    justify-content: center; 
+    gap: 30px;
+    flex-wrap: wrap;
+    
+}
+
+.card h4 {
+    background-color: #1F1F2D; 
+    padding: 40px;
+    width: 200px; 
+    margin: 10px; 
+    border-radius: 30px; 
+    text-align: center;
+    transition: transform 0.2s ease;
+    font-size: 1.5px;
+}
+
+.card h4 {
+    color: #4B2C91; 
+    font-size: 0.9rem;
+}
+
+.card h4 {
+    font-size: 0.9rem;
+    color: #ddd; 
+}
+
+
+.card:hover {
+    transform: scale(1.05); 
+    background-color: #0f101f; 
+}
+
+.button {
+  display: inline-block;
+  margin-top:20%;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 254, 254);
+  padding: 5px 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  
+}
+
+canvas {
+    position: fixed;
+
+}
+
+nav img {
+    width: 80px;
+    height: 70px;
+    vertical-align: middle;
+    
+}
+
+

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacio web</title>
+    <link rel="stylesheet" href="Styles.css">
+
+</head>
+<body>
+    
+
+<nav>
+   
+    <img src="img/image.png" alt="Logo"
+</nav>
+
+<heder>
+
+    <h1>Descubre nuestro espacio Web</h1>
+    <p class="subtítulo">Fería de Especialidades Técnicas</p>
+
+</heder>
+
+<main>
+<section class="galaxia">
+
+<h2>¿Descubre ?</h2>
+
+<div class="contenedor-cards">
+<div class="card" title="Componente estructural HTML: Sera la estructura de tu planeta">
+<h4>HTML5</h4>
+<p>Construye la estructura de tu planeta.</p>
+</div>
+<a href="pagina1.html" class="button">🌠</a>
+
+
+
+
+<div class="card">
+<h4>CSS</h4>
+<p>Haras brillar tu página mas que las estrellas.</p>
+</div>
+<a href="pagina2.html" class="button">🌠</a>
+
+
+
+<div class="card">
+<h4>JavaScript</h4>
+<p>Tu planeta sera el mas dinámico y divertido.</p>
+</div>
+<a href="pagina3.html" class="button">🌠</a>
+
+</section>
+
+<a href="juego.html" class="button">Meteoro.GaMe</a>
+
+
+
+<canvas id="meteors"></canvas>
+
+<script>
+  const canvas = document.getElementById('meteors');
+  const ctx = canvas.getContext('2d');
+
+  let width, height;
+
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Clase Meteorito
+  class Meteor {
+    constructor() {
+      this.reset();
+    }
+
+    reset() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * -height;
+      this.length = 80 + Math.random() * 60;
+      this.speed = 4 + Math.random() * 4;
+      this.angle = Math.PI / 4; // 45 grados diagonal
+      this.opacity = 0.5 + Math.random() * 0.5;
+      this.width = 2;
+    }
+
+    update() {
+      this.x += this.speed * Math.cos(this.angle);
+      this.y += this.speed * Math.sin(this.angle);
+      this.opacity -= 0.01;
+
+      if (this.opacity <= 0 || this.x > width || this.y > height) {
+        this.reset();
+      }
+    }
+
+    draw(ctx) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+      ctx.lineWidth = this.width;
+      ctx.shadowColor = 'white';
+      ctx.shadowBlur = 10;
+      ctx.moveTo(this.x, this.y);
+      ctx.lineTo(
+        this.x - this.length * Math.cos(this.angle),
+        this.y - this.length * Math.sin(this.angle)
+      );
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  const meteorCount = 100;
+  const meteors = Array.from({ length: meteorCount }, () => new Meteor());
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    meteors.forEach(meteor => {
+      meteor.update();
+      meteor.draw(ctx);
+    });
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+<a href="Proyectos.html" class="button">Proyectos</a>
+
+    
+</html>"
+
+
+</body>
+</html>
